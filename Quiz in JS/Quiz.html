@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #80391e
+        }
+
+        #left,
+        #right {
+            width: 40%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #b97455;
+            border-radius: 20px;
+            font-size: 1.2em;
+        }
+
+        #left {
+            position: absolute;
+            left: 5%
+        }
+
+        #right {
+            position: absolute;
+            right: 5%
+        }
+
+        .check {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            width: 100px;
+            height: 100%;
+        }
+
+        .check div {
+
+            height: 50px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left">
+        <h5>1.What does HTML stands For?</h5>
+        <input type="radio" name="question1" id="op1" /> HighLevel markup language <br>
+        <input type="radio" name="question1" id="op2" /> Hypertext Markup Language <br>
+        <input type="radio" name="question1" id="op3" /> Hip Hop Master Language <br>
+        <input type="radio" name="question1" id="op4" /> Horrible Markup Language <br>
+
+        <h5>2.What does CSS stands For?</h5>
+        <input type="radio" name="question2" id="op5" /> Cascading Style Sheets <br>
+        <input type="radio" name="question2" id="op6" /> Code cource stylesheet <br>
+        <input type="radio" name="question2" id="op7" /> copycat stylesheet <br>
+        <input type="radio" name="question2" id="op8" /> complicated style sheet <br>
+
+
+        <h5>3.what display property span elements have by default</h5>
+        <input type="radio" name="Question3" id="op9" /> block <br>
+        <input type="radio" name="Question3" id="op10" /> inline <br>
+        <input type="radio" name="Question3" id="op11" /> inline-blockt <br>
+        <input type="radio" name="Question3" id="op12" /> none <br>
+
+        <h5>4.Is javaScript case-sensitive?</h5>
+        <input type="radio" name="Question4" id="op13" /> yes <br>
+        <input type="radio" name="Question4" id="op14" /> no <br>
+
+        <div class="check">
+            <div id="chk1" style="margin-top:100px;"></div>
+            <div id="chk2" style="margin-top:90px"></div>
+            <div id="chk3" style="margin-top:100px;"></div>
+            <div id="chk4" style="margin-top:50px;"></div>
+        </div>
+    </div>
+
+
+    <div id="right">
+        <h5>5.Which is not type safe?</h5>
+        <input type="radio" name="question5" id="op15" /> Java <br>
+        <input type="radio" name="question5" id="op16" /> Javascript <br>
+        <input type="radio" name="question5" id="op17" /> C# <br>
+        <input type="radio" name="question5" id="op18" /> Typescript <br>
+
+        <br>
+        <button onclick="checkResult()">Submit</button>
+        <p id="score"></p>
+        <h1 id="percentage"></h1>
+
+        <div class="check">
+            <div id="chk5" style="margin-top:70px"></div>
+
+        </div>
+    </div>
+
+
+    <script>
+        function checkResult() {
+            var sum = 0;
+            answer1 = document.getElementById("op2");
+            answer2 = document.getElementById("op5");
+            answer3 = document.getElementById("op10");
+            answer4 = document.getElementById("op13");
+            answer5 = document.getElementById("op16");
+
+
+            //question1; 
+            if (answer1.checked == true) {
+                sum++;
+                document.getElementById("chk1").innerHTML = '&#10004';
+                document.getElementById("chk1").style.color = "green";
+
+            }
+            else {
+                document.getElementById("chk1").innerHTML = '&#10006';
+                document.getElementById("chk1").style.color = "red";
+            }
+
+
+            //question2; 
+            if (answer2.checked == true) {
+                sum++;
+                document.getElementById("chk2").innerHTML = '&#10004';
+                document.getElementById("chk2").style.color = "green";
+            } else {
+                document.getElementById("chk2").innerHTML = '&#10006';
+                document.getElementById("chk2").style.color = "red";
+            }
+
+
+            //question3; 
+            if (answer3.checked == true) {
+                sum++;
+                document.getElementById("chk3").innerHTML = '&#10004';
+                document.getElementById("chk3").style.color = "green";
+            }
+            else {
+                document.getElementById("chk3").innerHTML = '&#10006';
+                document.getElementById("chk3").style.color = "red";
+            }
+            //question4; 
+            if (answer4.checked == true) {
+                sum++;
+                document.getElementById("chk4").innerHTML = '&#10004';
+                document.getElementById("chk4").style.color = "green";
+            }
+            else {
+                document.getElementById("chk4").innerHTML = '&#10006';
+                document.getElementById("chk4").style.color = "red";
+            }
+            //question5; 
+            if (answer5.checked == true) {
+                sum++;
+                document.getElementById("chk5").innerHTML = '&#10004';
+                document.getElementById("chk5").style.color = "green";
+            }
+            else {
+                document.getElementById("chk5").innerHTML = '&#10006';
+                document.getElementById("chk5").style.color = "red";
+            }
+
+
+            document.getElementById("score").innerHTML = "Score : " + sum;
+
+            var percentage = sum * 100 / 5;
+            document.getElementById("percentage").innerHTML = percentage + "%";
+            document.getElementById("percentage").style.color = "#ffeab9";
+            if (percentage < 50) { document.getElementById("percentage").style.color = "red"; }
+            if (percentage == "100") { document.getElementById("percentage").innerHTML = percentage + "%    Good Job !!"; }
+        }
+
+    </script>
+</body>
+
+</html>
